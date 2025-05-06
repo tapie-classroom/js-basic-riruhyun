@@ -100,6 +100,13 @@ const init = () => {
 
 init();
 
+document.getElementById("regame").addEventListener("click", () => {
+  document.getElementById("game-over").setAttribute("style", "display: none");
+  document.getElementById("game-win").setAttribute("style", "display: none");
+  score = 0;
+  init();
+});
+
 window.addEventListener("keydown", (e) => {
   let moved;
 
@@ -303,11 +310,9 @@ window.addEventListener("keydown", (e) => {
   };
 
   if (!canMove()) {
-    document
-      .getElementById("game-over")
-      .setAttribute("style", "display: block");
+    document.getElementById("game-over").setAttribute("style", "display: flex");
   } else if (table.some((e) => e.some((el) => el === 2048))) {
     // 이거 가능? ㅋㅋ
-    document.getElementById("game-win").setAttribute("style", "display: block");
+    document.getElementById("game-win").setAttribute("style", "display: flex");
   }
 });
